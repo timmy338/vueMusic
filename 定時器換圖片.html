@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload=function()
+        {
+        var img=document.getElementById("img");
+        var imgArr=["image/1.jpg","image/2.jpg","image/3.jpg"];
+        var index=0;
+        setInterval(function()
+            {
+                index++;
+                if(imgArr.length-1<index)
+                {
+                    index=0;
+                }
+                img.src=imgArr[index];
+            },1000);
+            /*clearInterval(定時器)*/
+        }
+    </script>
+</head>
+<body>
+    <img src="image/1.jpg" id="img">
+</body>
+</html>

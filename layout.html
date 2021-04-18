@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 200px;
+            border:10px red solid;
+            padding: 10px;
+            margin: 30px;
+            /*
+                邊框
+                border:20px red solid
+                solid 實線 dotted 點狀虛線 dashed虛線 double 雙線
+                邊框四個方向的寬度
+                border-width:xx xx xx xx上右下左
+                border-color:同上
+                border-方向: none;
+
+                內邊距
+                padding:xx xx xx xx上右下左
+
+                外邊距
+                margin:xx xx xx xx (左上移自己右下移別人)
+                兄弟元素外邊距重疊
+
+
+                父子div(橫常用置中)
+                width: xxx 
+                margin-left: auto;
+                margin-right: auto;    自動填滿
+
+                (豎)
+                overflow: auto;滾輪
+
+                行內元素使用邊距不影響布局
+
+                display設置元素顯示類型block,inline,inline-block
+                table表格,none隱藏
+
+                visibility設置可見性 visible ,hidden不顯示但位置仍占用
+                ul(列表)
+                list-style:none 去除項目符號
+
+                (設定不改變的div大小)
+                box-sizing:border-box;
+
+                outline=border但不影響布局
+                box-shadow:右px 下px 強度px color 陰影
+                border-radius 圓角半徑
+
+                float:左或右 (水平布局等式不再強迫成立,不再占用文檔流)
+                浮動元素不會蓋住文字
+                脫離文檔流後不用再區分行內和块
+
+                .xx::after
+                {
+                    content:'';
+                    display:block;
+                    clear: both;
+                } ; 動態div
+
+                clear:left or right or both清除float的影響
+                清除影響較大的
+
+                .clearfix::before,
+                .clearfix::after: {
+                    content:'';
+                    display:table;
+                    clear:both;
+                };(解決高度塌陷和外邊距重疊)
+
+                開啟定位
+                position:relative 相對定位
+                (文檔流所在的位置為原點,不脫離文檔流)
+                top: px;
+                left:;bottom:;right:;
+
+                position:absolute絕對定位
+                (脫離文檔流,原點為最近一個開啟定位的祖先元素)
+                margin:auto;
+                right:0;top:0;left:0;bottom:0;
+
+                position:fixed 固定定位
+                (和絕對定位一致,頁面滑動時也永遠固定在左上)
+
+                z-index:xx ;層級(一樣優先設置最後的最上,祖先不會蓋住後代)
+
+                background-image:url();設置背景圖片
+                background-repeat:no-repeat ,repeat-x...
+                background-positon:top,bottom,px...
+                background-clip:border-box(背景在邊框後面)
+                padding-box(背景不在邊框里面) content-box(背景只在內容區)
+                
+                background-size:寬,高(圖片大小,只寫一個另一個為auto)
+                cover(鋪滿原圖片不變) contain(完整顯示)
+
+                background-attachment:fixed(背景圖滑動時仍固定在頁面);
+
+                background-image:linear-gradient(to 方向 [xxdeg],color [xxpx],...)線性漸變
+                
+            */
+        }
+        .box2
+        {
+            
+            width: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 100%;
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"><div class="box2"></div></div>
+</body>
+</html>

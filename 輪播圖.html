@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload=function()
+        {   
+            var prev=document.getElementById("prev");
+            var next=document.getElementById("next");
+            var img=document.getElementsByTagName("img")[0];
+            var index=0;
+            var imgarr=["./image/1.jpg","./image/2.jpg","./image/3.jpg"];
+
+            prev.onclick=function()
+            {
+                index--;
+                if(index<0)
+                {
+                    index=2;
+                }
+                img.src=imgarr[index];
+            };
+
+            next.onclick=function()
+            {
+                index++;
+                if(index>2)
+                {
+                    index=0;
+                }
+                img.src=imgarr[index];
+            };
+        }
+    </script>
+
+    <style>
+        .top{
+            margin: 0 auto;
+            width: 632px;
+            height: 400px;
+            background-color: antiquewhite;
+            text-align: center;
+        }
+
+   
+    </style>
+</head>
+<body>
+    <div class="top">
+        <img src="./image/1.jpg" alt="" >
+        <button id="prev">上一張</button>
+        <button id="next">下一張</button>
+    </div>
+</body>
+</html>

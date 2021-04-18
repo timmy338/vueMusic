@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function getStyle(obj,attr)
+            {
+                if(window.getComputedStyle)
+                {
+                    return getComputedStyle(obj,null)[attr];
+                }
+                else
+                return obj.currentStyle[attr];
+            }
+
+        function addClass(obj,cn)
+        {
+            if(!hasClass(obj,cn))
+            {
+                obj.className+=""+cn;
+            }
+        }
+
+        function hasClass(obj,cn)
+        {
+            var reg=new RegExp("\\b"+cn+"\\b");
+
+            return reg.test(obj.className);
+        }
+
+        function remove(obj,cn)
+        {
+            var reg=new RegExp("\\b"+cn+"\\b");
+            obj.className=obj.className.replace(reg,"");
+        }
+
+        function toggleClass(obj,cn)
+        {
+            if(hasClass(obj,cn))
+            {
+                removeClass(obj,cn);
+            }
+            else{
+                addClass(obj,cn);
+            }
+        }
+
+        function fold(div)
+        {
+            for(var i=0;i<div.length;i++)
+            {
+                /*for(var j=1;j<div[i].children.length;j++)
+                {
+                    div[i].children[j].style.display="none";
+                }*/
+                div[i].style.height=21+"px";
+            }
+        }
+
+        
+
+        function move(obj,attr,target,speed,callback)
+            {
+                clearInterval(obj.timer);
+                var current=parseInt(getStyle(obj,attr));
+                if(current>target)
+                {
+                    speed=-speed;
+                }
+                obj.timer=setInterval(function()
+                {
+                    var oldValue=parseInt(getStyle(obj,attr));
+                    var newValue=oldValue+speed;
+                    if((speed<0&&newValue<target)||(speed>0&&newValue>target))
+                    {
+                        newValue=target;
+                    }
+                    obj.style[attr]=newValue+"px";
+
+                    if(newValue==target)
+                    {
+                        clearInterval(obj.timer);
+                        callback()||callback;
+                    }
+                },30);
+               
+            }
+        function toggleMenu(obj,div)
+        {
+            var begin=obj.offsetHeight;
+                 
+                    if(!hasClass(obj,"collapsed"))
+                    {
+                        addClass(obj,"collapsed");
+                        fold(div);
+                    }
+                    else
+                    {
+                        remove(obj,"collapsed");
+                        for(var i=1;i<obj.children.length;i++)
+                        {
+                            //parentDiv.children[i].style.display="block";
+                            obj.style.height="auto";
+                        }
+                    }
+
+                    var end=obj.offsetHeight;
+                    obj.style.height=begin+"px";
+                    move(obj,"height",end,10,function(){
+                    });
+        }
+        window.onload=function()
+        {
+            var menuSpan=document.querySelectorAll(".menuSpan");
+            var div=document.getElementsByClassName("collapsed");
+            var openDiv=menuSpan[0].parentNode;
+
+            fold(div);
+            for(var i=0;i<menuSpan.length;i++)
+            {
+                menuSpan[i].onclick=function()
+                {
+                    var parentDiv=this.parentNode;
+                    
+                    toggleMenu(parentDiv,div)
+
+
+                    if(openDiv!=parentDiv)
+                    {
+                        addClass(openDiv,"collapsed");
+                        fold(div);
+                    }
+                    openDiv=parentDiv;
+                    
+               
+                    
+                
+                }
+            }
+        }
+
+
+    </script>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        #my_menu
+        {
+            margin: 0 auto;
+            background-color: rgb(80, 80, 80);
+            width: 200px;
+        }
+        #my_menu div
+        {
+            overflow: hidden;
+        }
+        a{
+            display: block;
+            color:aqua;
+            width: 200px;
+            text-decoration: none;
+        }
+        span
+        {
+            width: 200px;
+            color:aliceblue;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="my_menu" class="sdmenu">
+        <div>
+            <span class="menuSpan">在線工具</span>
+            <a href="#">圖像優化</a>
+            <a href="#">收藏夾圖標生成器</a>
+            <a href="#">郵件</a>
+            <a href="#">htaccess密碼</a>
+            <a href="#">梯度圖像</a>
+            <a href="#">按鈕生成器</a>
+        </div>
+
+        <div class="collapsed">
+            <span class="menuSpan">支持我們</span>
+            <a href="#">推薦我們</a>
+            <a href="#">鏈接我們</a>
+            <a href="#">網絡資源</a>
+        </div>
+
+        <div class="collapsed">
+            <span class="menuSpan">合作伙伴</span>
+            <a href="#">javascript工具包</a>
+            <a href="#">Css駆動</a>
+            <a href="#">CodingForums</a>
+            <a href="#">Css例子</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <Script>
+        window.onload = function () {
+            var allA = document.getElementsByTagName("a");
+
+            function  deleteTr() 
+            {
+                this.parentNode.parentNode.remove();
+            }
+
+
+            for (var i = 0; i < allA.length; i++) {
+
+                allA[i].onclick = deleteTr;
+            }
+
+            var addBtn=document.getElementById("addEmpButton");
+            
+            addBtn.onclick=function()
+            {
+                var empName=document.getElementById("empName");
+                var email=document.getElementById("email");
+                var salary=document.getElementById("salary");
+                var table=document.getElementById("employeeTable");
+                var tbody=table.getElementsByTagName("tbody")[0];
+
+
+                var a=document.createElement("a");
+                a.innerHTML="Delete";
+                a.href="javascript:;";
+                a.onclick=deleteTr;
+
+                var tr=document.createElement("tr");
+                var td1=document.createElement("td");
+                var td2=document.createElement("td");
+                var td3=document.createElement("td");
+                var td4=document.createElement("td");
+                    
+                
+                td1.innerHTML=empName.value;
+                tr.appendChild(td1);
+
+                td2.innerHTML=email.value;
+                tr.appendChild(td2);
+               
+                td3.innerHTML=salary.value;
+                tr.appendChild(td3);
+
+                td4.appendChild(a);
+                tr.appendChild(td4);
+
+                tbody.appendChild(tr);
+            }
+
+        }
+    </Script>
+
+    <style>
+        table {
+            margin: 0 auto;
+            padding-bottom: 400px ;
+            border: 1px solid black;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="employeeTable">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&nbsp;</th>
+        </tr>
+
+        <tr>
+            <td>Jerry</td>
+            <td>Jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a href="javaScriptL:;">Delete</a></td>
+        </tr>
+
+        <tr>
+            <td>timmy</td>
+            <td>timmy@sohu.com</td>
+            <td>3000</td>
+            <td><a href="javaScriptL:;">Delete</a></td>
+        </tr>
+    </table>
+
+    <div id="formDiv">
+        <h4>添加新員工</h4>
+
+        <table>
+            <tr>
+                <td class="word">name:</td>
+                <td class="inp"><input type="text" name="empName" id="empName"></td>
+            </tr>
+
+            <tr>
+                <td class="word">email:</td>
+                <td class="inp"><input type="text" name="email" id="email"></td>
+            </tr>
+
+            <tr>
+                <td class="word">salary:</td>
+                <td class="inp"><input type="text" name="salary" id="salary"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpButton" value="abc">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

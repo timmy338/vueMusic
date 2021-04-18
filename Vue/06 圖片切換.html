@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        
+        #app
+        {
+            width: 1000px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img :src="imgArr[i]" alt="" >
+        <a href="javaScript:;" @click="back" v-show="i>0">上一張</a>
+        <a href="javaScript:;" @click="next" v-show="i<2">下一張</a>
+    </div>
+    <!-- -------------------------------- -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                imgArr:["../image/1.jpg","../image/2.jpg","../image/3.jpg"],
+                i:0,
+            },
+            methods:{
+                back:function()
+                {
+                    this.i--;
+                },
+                next:function()
+                {
+                    this.i++;
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #input-num
+        {
+            width: 1226px;
+            margin: 0 auto;
+            margin-top:30px;
+        }
+
+        #input-num button,span
+        {
+            width: 150px;
+            height: 100%;
+            font-size: 40px;
+            color:#ad2a27;
+            background-color: rgba(0,0,0,0);
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="input-num">
+            <button @click="down">-</button>
+            <span v-text="num"></span>
+            <button @click="up">+</button>
+        </div>
+
+    </div>
+    <!-- -------------------------------- -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                num:1,
+            },
+            methods:
+            {
+                down:function(){
+                    if(this.num==0)
+                    {
+                        alert("到底了~~");
+                    }
+                    else
+                        this.num--;
+                },
+                up:function(){
+                    if(this.num==10)
+                    {
+                        alert("到頂了~~");
+                    }
+                    else
+                        this.num++;
+                }
+            },
+        })
+    </script>
+</body>
+</html>

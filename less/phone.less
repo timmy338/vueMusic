@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.w
+{
+    width: (693/40rem);
+    margin: 0 auto;
+}
+
+html{
+    //設置rem比值
+    font-size:(100vw/750)*40;
+    background-color: #eff0f4;
+}
+
+a{
+    text-decoration: none;
+}
+
+.top:extend(.w)
+{  
+    display: flex;
+    height: (175/40rem);
+    justify-content: space-between;
+    align-items: center;
+    
+    a{
+        color:#24253d;
+        font-size: (60/40rem);
+
+        i{
+            color:#999;
+            font-size: (40/40rem);
+        }
+    }
+
+}
+
+.banner:extend(.w)
+{
+    img{
+        width:100% ;
+    }
+}
+
+.middle:extend(.w)
+{
+    height: (329/40rem);
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-between;
+    align-content: space-around;
+
+
+   a
+   {
+        width: (327/40rem);
+        height: (104/40rem);
+        color:white;
+        line-height: (104/40rem);
+        border-radius: (10/40rem);
+        font-size: (30/40rem);
+
+
+
+       i
+       {
+           margin-left: (30/40rem);
+           margin-right: (30/40rem);
+       }
+   }
+
+
+
+   .menu-orange
+   {
+       background-color: orange;
+   }
+   .menu-purple
+   {
+       background-color: purple;
+   }
+   .menu-pink
+   {
+       background-color: pink;
+   }
+   .menu-blue
+   {
+       background-color: skyblue;
+   }
+}
+
+.course-list:extend(.w)
+{
+    .title
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h2
+    {
+        font-size: (33/40rem);
+        color:#24253d;
+        border-left: (10/40rem) solid #3a84ff;
+        padding-left: (20/40rem);
+    }
+
+    a
+    {
+        font-size:(28/40rem);
+        color:#656565;
+    }
+}
+
+.item-list
+{
+    width: (720/40rem);
+    display: flex;
+    overflow: auto;
+}
+.item
+{
+    margin-top: 15px;
+    margin-right: (24/40rem);
+    margin-bottom: 15px;
+    flex:none;
+    width: (280/40rem);
+    
+    height:(324/40rem);
+    padding: 0 (22/40rem);
+    background-color: #fff;
+    box-shadow: 0 0 10px rgb(0, 0, 0, .4);
+    border-radius: (10/40rem);
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+
+    img
+    {
+        width: 100%;
+    }
+
+    .course-title
+    {
+        font-size:(30/40rem);
+        color:#24253d;
+    }
+
+    .user-info
+    {
+        display: flex;
+        align-items: center;
+    }
+
+    .avatar
+    {
+        width: (42/40rem);
+        height: (42/40rem);
+    }
+
+    .nickname
+    {
+        margin-left: 4px;
+        font-size: (24/40rem);
+        color:#969393
+
+    }
+
+}

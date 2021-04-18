@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        #app
+        {
+            width: 1000px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        #app h2
+        {
+        
+           text-align: center;
+           font-size: 50px;
+           color:orange;
+        }
+
+        #app input
+        {
+            margin-top: 30px;
+            width: 600px;
+            height: 50px;
+            font-size: 50px;
+            text-align: center;
+            margin-left: 200px;
+            padding:0px;
+        }
+        li div
+        {
+            position: relative;
+            margin-left: 200px;;
+            width: 600px;
+            height: 50px;
+            border: 1px solid black;
+            border-top:none;
+            margin-bottom: 1px;
+        }
+        li div button
+        {
+          position: absolute;
+          left: 550px;
+          top:10px;
+          height: 30px; 
+        }
+
+        #topBottom{
+            margin-left: 200px;;
+            width: 600px;
+            height: 30px;
+            border: 1px solid black;
+            border-top:none;
+            margin-bottom: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <h2>記事本</h2>
+        <input type="text" v-model="message" @keyup.enter="add">
+
+       <div id="topBody">
+        <ul>
+            <li  v-for="(item,index)  in arr">  
+                <div>
+                    {{index+1}}.
+                    {{item}}
+                    <button @click="remove(index)">X</button>
+                </div>
+            </li>
+            
+        </ul>
+       </div>
+
+       <div id="topBottom" v-show="arr.length!=0">
+            {{arr.length}} items left
+            <a href="javascript:;" @click="clear">clear</a>
+       </div>
+
+</div>
+    <!-- -------------------------------- -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                arr:["吃飯","睡覺","沖沖沖"],
+                message:"",
+            },
+            methods:
+            {
+                add:function()
+                {
+                    this.arr.push(this.message);
+                    this.message="";
+                },
+                remove:function(index)
+                {
+                    this.arr.splice(index,1);
+                },
+                clear:function()
+                {
+                    this.arr=[];
+                }
+            }
+        })
+    </script>
+</body>
+</html>

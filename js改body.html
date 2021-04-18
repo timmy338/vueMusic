@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function()
+        {
+            var city=document.getElementById("city");
+            var li =document.createElement("li");
+            li.innerHTML="廣州";
+            city.appendChild(li);
+
+
+            function myClick(idStr,fun)
+            {
+                var btn=document.getElementById(idStr);
+                btn.onclick=fun;
+            }
+        }
+
+    </script>
+
+
+
+    <style>
+        div
+        {
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="firstDiv">
+        <ul id="city">
+            <li id="bj">北京</li>
+            <li>上海</li>
+            <li>澳門</li>
+            <li>湖北</li>
+        </ul>
+    </div>
+
+    <div>
+
+    <button id="btn01">創建一個廣州節點,添加到city下</button>
+    <button id="btn02">將廣州節點插入到bj前面</button>
+    <button id="btn03">使用廣州節點替換bj節點</button>
+    <button id="btn04">刪除bj節點</button>
+    <button id="btn05">讀取city的html代碼</button>
+    <button id="btn06">創建一個廣州節點,添加到city下</button>
+
+            
+</div>
+</body>
+</html>

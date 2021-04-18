@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .setRed
+        {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in move" :class="{setRed:index===current}" @click="setRed(index)">
+                {{index+1}} {{item}}
+            </li>
+        </ul>
+    </div>
+    <!-- -------------------------------- -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                move:["海王","進巨","b海","可塑性記憶"],
+                current:-1,
+            },
+            methods:
+            {
+                setRed:function(index)
+                {
+                    this.current=index;
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

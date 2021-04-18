@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        #top
+        {
+            width: 1000px;
+            margin: 0 auto;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #top h2
+        {
+            font-size: 50px;
+            color:teal;
+        }
+
+        #search
+        {
+            margin-top: 30px;
+        }
+        #search input
+        {
+            float:left;
+            width: 800px;
+            height: 50px;
+            padding: 0;
+        }
+
+
+        #search button
+        {
+            float:left;
+            height: 54px;
+            width: 104px;
+            padding: 0;
+            background-color: aqua;
+        }
+
+        #list
+        {
+            margin-top: 50px;
+        }
+
+        #list li
+        {
+            float: left;
+            margin-left: 5px;
+        }
+
+        #resource 
+        {
+            margin-top: 100px;
+        }
+        #resource li
+        {
+            float: left;
+            margin-left: 10px;
+            border-right:1px solid black ;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="top">
+        <h2>天氣通</h2>
+        <div id="search">
+            <input type="text" v-model="message" @keyup.enter="searchWeather">
+            <button @click="">搜索</button>
+            <br>
+        </div>
+        <div id="list">
+            <ul>
+                <li v-for="items in arr" @click="changeWeather(items)">
+                    {{items}} 
+                </li>
+            </ul>
+        </div>
+   
+        <div id="resource">
+            <ul>
+                <li v-for="item in weatherList">
+                    {{item.type}}
+                    <br>
+                    {{item.low}}
+                    <br>
+                    {{item.high}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>    
+        var app=new Vue({
+            el:"#top",
+            data:{
+                message:"",
+                arr:["成都","深圳","天津","上海"],
+                weatherList:[],
+            },
+            methods:
+            {
+                searchWeather:function()
+                {
+                    var that=this;
+                    axios.get("http://wthrcdn.etouch.cn/weather_mini?city="+this.message)
+                    .then(function(response)
+                    {
+                        //console.log(response.data.data.forecast)
+                        that.weatherList=response.data.data.forecast;
+                    })
+                    .catch(function(err){})
+                },
+
+                changeWeather:function(city)
+                {
+                    this.message=city;
+                    this.searchWeather();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

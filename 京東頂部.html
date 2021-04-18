@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <style>
+        
+        .clearfix::before,.clearfix::after 
+        {
+            content:'';
+            display:table;
+            clear:both;
+        }
+        
+        .location .fas
+        {
+            color: red;
+        }
+
+        .top-bar-wrapper
+        {
+            position:relative;
+            line-height: 30px;
+            height: 30px;
+            border-bottom: 1px #ddd solid;
+            background-color: #e3e4e5;
+            font-size:12px;
+        }
+
+        .top-bar
+        {
+            width: 1190px;
+            margin: 0 auto;
+        }
+
+        .top-bar a:hover,.top-bar .fontred
+        {
+            color: red;
+        }
+
+        .shortcut .line
+        {
+            height: 10px;
+            width: 1px;
+            background-color: #999;
+            margin: 10px 12px;
+            
+        }
+
+        .location
+        {
+            float: left ;
+        }
+
+        .city
+        {
+            padding-right:10px;
+            padding-bottom: 2px;
+            position:relative;
+            z-index: 1;
+        }
+
+        .location .locationchoice
+        {
+            display: none;
+            width: 320px;
+            height: 436px;
+            background-color: white;
+            border: 1px solid #ddd;
+            position:absolute;
+            top: 31px;
+
+        }
+
+        .location:hover .locationchoice
+        {
+            display: block;
+        }
+
+        .city:hover 
+        {
+            background-color: white;
+        }
+
+        .shortcut
+        {
+            float: right;
+        }
+
+        .shortcut li
+        {
+            float: left;
+        }
+
+        .top-bar a,.top-bar i,.top-bar span
+        {
+            color:#999;
+            text-decoration: none;
+        }
+
+        .top-bar i
+        {
+            margin-left:5px
+        }
+
+    </style>
+</head>
+<body>
+    <div class="top-bar-wrapper">
+        <div class="top-bar clearfix">
+            <div class="location">
+                <div class="city">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="javascript:;">澳門</a>
+                </div>
+
+
+                <div class="locationchoice"></div>
+            </div>
+
+            <ul class="shortcut clearfix">
+                <li>
+                    <a href="">你好,請登陸 </a>
+
+                    <a class="fontred" href="">免費注冊</a>
+                </li>
+               
+                <li class="line"></li>
+                <li><a href="">我的訂單</a></li>
+
+                <li class="line"></li>
+                <li><a href="">我的京東<i class="fas fa-angle-down"></i></a></li>
+
+                <li class="line"></li>
+                <li><a href="">京東會員</a></li>
+
+                <li class="line"></li>
+                <li><a class="fontred" href="">企業採購<i class="fas fa-angle-down"></i></a></li>
+
+                <li class="line"></li>
+                <li><span>客戶服務<i class="fas fa-angle-down"></i></span></li>
+
+                <li class="line"></li>
+                <li><span>網站導航<i class="fas fa-angle-down"></i></span></li>
+
+                <li class="line"></li>
+                <li><span>手機京東</span></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

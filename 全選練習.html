@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload=function()
+        {
+            var checkedAllBtn=document.getElementById("checkedAllBtn");
+            var sportArr=document.getElementsByName("items");
+            checkedAllBtn.onclick=function()
+            {
+
+                for(var i=0;i<sportArr.length;i++)
+                {
+                    sportArr[i].checked=true;
+                }
+                 
+            };
+
+            var checkedNoBtn=document.getElementById("checkedNoBtn");
+            checkedNoBtn.onclick=function()
+            {
+
+                for(var i=0;i<sportArr.length;i++)
+                {
+                    sportArr[i].checked=false;
+                }
+            
+            };
+
+            var checkedRevBtn=document.getElementById("checkedRevBtn");
+            checkedRevBtn.onclick=function()
+            {
+
+                for(var i=0;i<sportArr.length;i++)
+                {
+                   sportArr[i].checked=!sportArr[i].checked;
+                }
+            
+            };
+
+            var sendBtn=document.getElementById("sendBtn");
+            sendBtn.onclick=function()
+            {
+    
+                for(var i=0;i<sportArr.length;i++)
+                {
+                    if(sportArr[i].checked)
+                    {
+                        alert(sportArr[i].value);
+                    }
+                }
+            
+            };
+
+            var checkedAllBox=document.getElementById("checkedAllBox");
+            checkedAllBox.onclick=function()
+            {
+               
+                for(var i=0;i<sportArr.length;i++)
+                {
+                    sportArr[i].checked=checkedAllBox.checked;
+                }
+            };
+
+        }
+    </script>
+</head>
+<body>
+    <form method="post" action="">
+        你愛好的工作是?<input type="checkbox" id="checkedAllBox">全選/全不選
+
+        <br>
+        <input type="checkbox" name="items" value="足球">足球
+        <input type="checkbox" name="items" value="籃球">籃球
+        <input type="checkbox" name="items" value="羽毛球">羽毛球
+        <input type="checkbox" name="items" value="乒乓球">乒乓球
+        <br>
+        <input type="button" id="checkedAllBtn" value="全選">
+        <input type="button" id="checkedNoBtn" value="全不選">
+        <input type="button" id="checkedRevBtn" value="反選">
+        <input type="button" id="sendBtn" value="提交">
+    </form>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <style>
+        body
+        {
+            /* background-image: linear-gradient(45deg, rgba(252, 224, 101, 0.8), rgba(80, 185, 255, 0.8)); */
+            background-color: rgba(255, 241, 177, 0.8);
+        }
+        
+        #app
+        {
+            margin: 0 auto;
+            margin-top: 100px;
+            width: 800px;
+            height: 500px;
+            background-color: rgba(255, 99, 71, 0.295);
+        }
+
+        #app #top
+        {
+           height: 60px;
+           line-height: 60px;
+           background-color: rgba(87, 202, 255, 0.705);
+        }
+
+        #app #top h2
+        {
+            float: left;
+            font-size: 18px;
+            margin-left: 20px;
+            color: whitesmoke;
+        }
+
+        #app #search
+        {
+            float: right;
+            margin-right: 30px;
+        }
+        #app input
+        {
+            float: left;
+            margin-top: 10px;
+            width: 220px;
+            height: 40px;
+            padding: 0;
+            padding-left: 20px;
+            border: none;
+            border-right: none;
+            border-top-left-radius:2em;
+            border-bottom-left-radius:2em;
+            background-color: rgba(255, 255, 255, 0.5);;
+        }
+
+        #app  #top i
+        {
+            float:left;
+            margin-top: 10px;
+            height: 40px;
+            width: 40px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            line-height:40px ;
+            font-size: 20px;
+            color: rgb(68, 68, 68);
+            border-top-right-radius:2em;
+            border-bottom-right-radius:2em;
+        }
+
+        #middle
+        {
+            width: 800px;
+            height: 380px;
+            background-image: linear-gradient(45deg, rgba(255, 220, 65, 0.507), rgba(80, 185, 255, 0.466));
+        }
+
+        #middle #middle-left
+        {
+            width: 200px;
+            height: 380px;
+            float: left;
+            overflow: auto;
+        }
+
+        #middle #middle-left ul::-webkit-scrollbar
+        {
+            width: 0px;
+        }
+
+        #middle-left ul
+        {
+            margin-top: 10px;
+            height: 360px;
+            overflow: auto;
+        }
+
+        #middle-left li
+        {
+            margin: 0 auto;
+            width: 180px;
+            line-height: 30px;
+            font-size: 12px;
+            padding-left: 10px ;
+        }
+
+        #middle-left li:nth-child(odd)
+        {
+            background-color: rgba(240, 240, 240, 0.5)
+        }
+
+        #middle-left li i
+        {
+            font-size: 14px;
+            border: none;
+            text-align: center;
+            line-height:30px ;
+            color: rgb(231, 44, 44);
+        }
+
+        #middle #middle-middle
+        {
+            width: 400px;
+            height: 380px;
+            float: left;
+            position: relative;
+        }
+
+        @keyframes console
+        {
+            from{transform: rotate(0deg);}
+            to{transform: rotate(359deg);}
+        }
+
+        #middle #middle-middle #circle
+        {
+            position: absolute;
+            top:80px;
+            left:110px;
+            z-index: 1;
+            animation-name:console;
+            animation-iteration-count:infinite;
+            animation-duration: 6s;
+ 
+
+        }
+
+        #middle #middle-middle #circleMusic
+        {
+            position: absolute;
+            z-index: 0;
+            height: 120px;
+            width: 120px;
+            top:120px;
+            left:150px;
+            animation-name: console;
+            animation-iteration-count: infinite;
+            animation-duration: 6s;
+        }
+
+        #middle #middle-right
+        {
+            width: 170px;
+            height: 360px;
+            padding-left: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-right: 12px;
+            float: left;
+            overflow: auto;
+        }
+
+        #middle #middle-right::-webkit-scrollbar
+        {
+            width: 0px;
+        }
+
+        #middle #middle-right #title
+        {
+            font-weight: bold;
+        }
+
+        #middle #middle-right li 
+        {
+            margin-top: 10px;
+            font-size: 10px;
+            position: relative;
+        }
+
+
+        #middle #middle-right li  #name
+        {
+            position: absolute;
+            top: 5px;
+            left: 40px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        #middle #middle-right #detail
+        {
+            margin-top: 40px;
+            line-height: 20px;
+        }
+
+        #middle #middle-right #avatar
+        {
+            width: 28px;
+            line-height: 28px;
+            border-top-right-radius:2em;
+            border-bottom-right-radius:2em;
+            border-top-left-radius:2em;
+            border-bottom-left-radius:2em;
+        }
+
+
+        #middle .line
+        {
+            width: 4px;
+            height: 380px;
+            float: left;
+            background-image:radial-gradient(rgba(73, 73, 73, 0.5),rgba(255, 255, 255, 0.1)) ;
+        }
+
+        .music
+        {
+            height: 60px;
+            background-color: aliceblue;
+        }
+
+        .music audio
+        {
+            width: 800px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="top">
+            <h2>網抑云</h2>
+            <div id="search">
+                <input type="text" v-model="query" @keyup.enter="searchMusic">
+                <i class="fas fa-search"></i>
+            </div>
+        
+        </div>
+    
+        <div id="middle">
+            <div id="middle-left">
+                <ul>
+                    <li v-for="item in musicList">
+                       <i class="fas fa-play-circle" @click="playMusic(item.id)"></i>
+                       {{item.name}}
+                    </li>
+                </ul>
+            </div>
+            <div class="line"></div>
+           
+            <div id="middle-middle"  >
+                    <img src="../image/circle.png" alt="" id="circle" :style="{'animation-play-state':isPlaying}">
+                    <img :src="musicImage" alt="" id="circleMusic" :style="{'animation-play-state':isPlaying}">
+            </div>
+            <div class="line"></div>
+            <div id="middle-right">
+                <span id="title">熱門留言</span>
+                <ul>
+                    <li id="comment" v-for="item in commentDetail">
+                        <img :src="item.user.avatarUrl" alt="" id="avatar">
+                        <span id="name">{{  item.user.nickname}}</span>
+                        <br>
+                        <span id="detail">{{item.content}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+            
+        <div class="music">
+            <audio @play="play" @pause="pause" :src="musicUrl" id="myMusic" autoplay loop controls></audio>  
+        </div> 
+
+
+    </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+        <script>
+            var app=new Vue(
+                {
+                   el:"#app",
+                    data:{
+                        query:"",
+                        musicList:[],
+                        musicUrl:"",
+                        musicImage:"",
+                        commentDetail:[],
+                        isPlaying:"paused",
+                    },
+                    methods:
+                    {   
+                        searchMusic:function()
+                        {
+                            var that=this;
+                            axios.get("https://autumnfish.cn/cloudsearch?keywords="+this.query)
+                            .then(function(response)
+                            {
+                                //console.log(response);
+                                that.musicList=response.data.result.songs;
+
+                            },function(err){})
+                        },
+                        playMusic:function(id)
+                        {
+                            //console.log(id);
+                            var that=this;
+                            axios.get("https://autumnfish.cn/song/url?id="+id)
+                            .then(function(response)
+                            {
+                                that.musicUrl=response.data.data[0].url;
+                            },function(err){})
+
+                            axios.get("https://autumnfish.cn/song/detail?ids="+id)
+                            .then(function(response)
+                            {
+                                //console.log(response);
+                                that.musicImage=response.data.songs[0].al.picUrl;
+                            },function(err){})
+
+                            axios.get("https://autumnfish.cn/comment/hot?id="+id+"&type=0")
+                            .then(function(response)
+                            {
+                                console.log(response);
+                                that.commentDetail=response.data.hotComments;
+                            },function(err){})
+                        },
+
+                        play:function()
+                        {
+                            this.isPlaying="running";
+                        },
+                        pause:function()
+                        {
+                            this.isPlaying="paused";
+                        },
+                        
+                    }
+                }
+            )
+        </script>
+    
+</body>
+</html>

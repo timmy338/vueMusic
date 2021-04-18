@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--name 對content的描述   content關鍵字-->
+    <!-- 幾秒後跳轉meta http-equiv="refresh" content=";url="/-->
+    
+    <title>這是個網站~~~</title>
+    
+    <style>
+    h1{
+        color:aqua;
+        font-size: 30px;
+    }
+    a{
+        color:pink;
+    }
+    font{
+        color:red;
+    }
+
+    #a
+    {
+        color:aquamarine;
+    }
+
+
+    ul > li:first-child
+    {
+        color:royalblue;
+    }
+    /* 
+        id 選擇器用#xxx        
+        class對多個使用 .xxx   
+        *對全部元素套用
+        類中指定某個div.xxx
+        使用,   h1,h2達成相同效果
+
+        父子 div > p (可與上面的類或id一同使用div.xxx > p)    
+        所有後代元素 div p(可與上面的類或id一同使用)
+        兄弟元素 p+span (只對後一個有影響)
+        p ~ span(對所有兄弟有影響)
+        指定有某種屬性的元素[屬性][屬性=屬性值] p[title]
+        選擇與屬性值開頭相同的[屬性^=屬性值]
+        結尾相同的[屬性$=屬性值]
+        含有相同的[屬性*=屬性值]
+
+        偽類
+        :first-child 第一個元素
+        :last-child 最後元素
+        :nth-child(n)第n個元素 特殊值n(1~無窮)2n(2,4,...)
+        :first-of-child 針對你指定的元素開始
+        :not(:nth-child()) 除了  
+
+        a:visited 訪問過的鏈接(只能改顏色)
+        a:link 沒訪問過的鏈接
+        a:hover 鼠標移入的狀態
+        a:active 鼠標點擊的狀態
+
+        p::first-letter 第一個字母
+        p::first-line 第一行
+        p::selection 鼠標選中的元素
+        (下面兩個需要與content一同使用)
+        ::before{content: "xxx"}
+        ::after 
+
+        繼承會將樣式套用在所有後代上(除背景和布局..)
+
+        可以在樣式中加入!important最高優先級(慎用)
+
+        width:xx% 會跟著父類縮放
+        顏色RGB(x,x,x,x)第四位.5為半透明 0為完全透明
+
+        font-family(字體格式)
+
+        讓用戶使用你的字體
+        @font-face{
+            font-family:'取名';
+            src: url('xx.ttf');
+        }
+
+        table
+        {
+            border-collapse: collapse; 1px的表格邊框
+        }
+
+        tr:nth-child(odd)   隔行換色
+        {
+            background-color:xx;
+        }
+    */
+    
+    </style>
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+    
+</head>
+
+<body>
+    
+    <!--
+        <br />換行
+        <hr />一條水平線
+        <b>加粗
+        &nbsp; 空格
+        &lt; <
+        &gt; >
+         <img src="路徑" alt="描述" width="100"/ >
+         
+         <a href="http://bilibili.com" target="_blank">點撃跳轉b站</a>
+         target="_blank"在新窗口開啟
+         href="#"自動跳到當前頁面的頂部
+         href="#xx" id='xx'跳到id的位置
+         a可以包含任意元素,除了a
+         text-decoration: none;下劃線
+
+         <p></p> 不能包含块元素
+        
+         <div></div> 獨占一行(块元素)用來布局
+
+         <span></span> 設置文本樣式(內聯元素)
+
+         <hgroup></hgroup> 內容相關的東西分為一組
+
+         <blockquote></..>引用別人的話
+         <q></q>不換行引用
+        
+         <ul></ul>無序列表
+         <li><>序列元素
+
+        <audio src="" controls></audio> 
+        controls 用戶控制播放
+        autoplay 自動播放(大部分瀏覽器不可使用)
+        loop 循環
+        <video><>同理
+
+        行高
+        line-height實際占用高度
+        行間距=行高-字體大小
+        
+        font:大小px/行高 字體樣式;
+
+        text-align:left right center 居中對齊 justify 兩端對齊
+        vertical-align: top bottom middle垂直對齊
+
+        white-space設置網頁如何處理空白
+        pre 保留 nowrap不換行
+        text-overflow:epllipsis;補省略號
+
+        .box1{
+            width: px;
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow:epllipsis;
+        }
+
+        <table>
+            <tr>行
+                <td></td>列
+                <td colspan="x"></td>橫向合拼x列
+            </tr>
+             <tr rowspan="x">縱向合拼x行
+            </tr>
+        </table>
+
+        <form action=".html"> action 表單要提交的server
+            <input type="text [password]" name=""> 文本框 
+            <input type="submit" value="">提交按鈕 value 指定按鈕文字
+            
+            <input type="radio" name="" value="a "> 
+            單選按鈕(name要相同)check 默認選擇
+
+            <input type="checkbox" name="" value="a "> 
+            多選按鈕(name要相同)check 默認選擇
+
+            <select name="haha"> 下拉選項
+                <option value="i"></option>
+                selected默認選擇
+            </select>
+        </form>
+    -->
+    
+    <center>
+        <h1>標題<font>1</font></h1>
+    <a href="http://bilibili.com" target="_blank">點撃跳轉b站</a>
+
+    <ul>
+        <li>第1個</li>
+        <li>第2個</li>
+        <li>第3個</li>
+     </ul>
+
+
+    <p id=a>
+        &copy; 15&nbsp; &gt; &nbsp;13
+    </p>
+
+    <hr />    <!--一條水平線-->
+    <img src="image/1.gif"  width="100"/ >
+    <img src="image/2.png"  width="100"/ >
+    <h2>標題<font>2</font></h2>
+
+    </center>
+    <audio src="source/1.mp3" controls></audio>
+    <iframe src="//player.bilibili.com/player.html?aid=671394682&bvid=BV1vU4y1s79c&cid=290531083&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+</body>
+</html>

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="./css/all.css">
+
+    <style>
+        
+        .clearfix::before,.clearfix::after 
+        {
+            content:'';
+            display:table;
+            clear:both;
+        }
+
+        .top-wrapper
+        {
+            position: relative;
+            background-color: #333;
+            height: 40px;
+            font-size: 12px;
+            line-height: 40px;
+
+        }
+        .top-wrapper a
+        {
+            text-decoration: none;
+            color: #b0b0b0;
+        }
+
+        .top-wrapper a:hover
+        {
+            color: white;
+        }
+
+        
+
+        .top-bar
+        {
+            width: 1226px;
+            margin: 0 auto;
+        }
+
+        .top-bar .line
+        {
+            width: 1px;
+            height: 13px;
+            background-color: #424242;
+            margin:13.5px 8px ;
+        }
+
+        .top-left,.top-left li,.top-right li
+        {
+            float:left;
+        }
+
+
+        .top-right
+        {
+            float:right;
+        }
+        
+        .app
+        {
+            position: relative;
+        }
+
+        .app span
+        {
+            color:black;
+        }
+
+        .app .qr
+        {
+            width:124px;
+            height: 0px;
+
+            line-height: 1;
+            text-align: center;
+            background-color: white;
+            top:40px;
+            left: -40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);  
+            position: absolute; 
+            transition: height 0.3s;
+            overflow: hidden;
+            z-index: 999;
+        }
+
+        .app .arrow
+        {
+            position: absolute;
+            display: none;
+            width: 0px;
+            height: 0px;
+
+            border:8px solid transparent;
+
+            border-top:none ;
+            top: 32px;
+            left:15px;
+            border-color: transparent transparent white transparent;
+        }
+
+        .app:hover .arrow
+        {
+            display: block;
+        }
+
+        .app:hover .qr
+        {
+            height: 148px;
+        }
+
+        .app:hover .downapp
+        {
+            display: block;
+            color:white;
+        }
+
+        .app .qr img
+        {
+            width: 90px ;
+            margin: 17px;
+            margin-bottom: 10px;
+        }
+
+        .app .qr span
+        {
+            font-size: 14px;
+        }
+
+        .buy
+        {
+            position: relative;
+        }
+
+        .buy .buylist
+        {
+            position: relative;
+            display: block;
+            width: 120px;
+            height: 40px;
+            margin-left: 25px;
+            background-color: #525252;
+            text-align:center;
+            z-index: 1;
+        }
+        
+        .buy .buybox
+        {
+            width:400px;
+            height:0px;
+            right: 0px;
+            top:41px;
+            text-align: center;
+            line-height: 100px;
+            background-color: white;
+            box-shadow: -5px 5px 10px -4px rgba(0, 0, 0, .3),5px 5px 10px -4px rgba(0, 0, 0, .3); 
+
+            position: absolute; 
+            
+            overflow: hidden;
+            transition: height 0.3s;
+            z-index: 999;
+        }
+
+
+        .buy:hover .buybox
+        {
+            height: 100px;
+        }
+
+        .buy:hover .buylist
+        {
+            background-color: white;
+            border-bottom: 1px solid white;
+        }
+
+        .buy:hover .buylist span
+        {
+            color: orange;
+        }
+
+
+
+        .head
+        {
+            height: 100px;
+            width: 1226px;
+            margin: 0 auto;
+        }
+
+        .head .head-left
+        {      
+            float:left;
+            margin-top: 22px;
+            width: 55px;
+            height: 55px;
+            overflow: hidden;
+            position: relative;  
+        
+        }
+
+
+        .head .head-left a
+        {
+            position: absolute;
+            left:0px;
+            width: 55px;
+            height: 55px;
+            background-color: #ff6700;
+            background-position: center;
+            transition: left 0.3s;
+            
+        }
+
+        .head .head-left .logo
+        {
+            
+            background-image: url(./image/mi-logo.png);
+
+        }
+
+        .head .head-left .home
+        {
+            left: -55px;
+            background-image: url(./image/mi-home.png);            
+        }
+
+        .head .head-left:hover .logo
+        {
+            left: 55px;
+        }
+
+        .head .head-left:hover .home
+        {
+            left:0;
+        }
+
+        
+        
+        .head-middle-limit
+        {
+            height: 100px;
+            position: relative;
+        }
+
+        .head-middle ul
+        {
+            margin-left: 52px;
+            height: 100px;
+            width: 800px;
+            float: left;
+        }
+
+        .head-middle li
+        {
+            float: left;
+        }
+
+        .head-middle a
+        {
+            display: block;
+            font-size: 16px;
+            margin-left: 20px;
+            color: #333333;
+            line-height: 100px;
+            text-decoration: none;
+        }
+
+        .head-middle .all
+        {
+            visibility: hidden;
+        }
+
+        .head-middle a:hover
+        {
+            color:#FF7E00;
+        }
+
+        .head-middle div
+        {
+            height: 0px;
+            width: 100%;
+            border-top:1px solid rgb(224,224,224);
+            left: 0;
+            top:100px;
+            box-shadow:  0 5px 10px -5px rgba(0, 0, 0, .3);
+            position: absolute;
+            transition: height 0.3s;
+            background-color: white;
+            overflow: hidden;
+            z-index: 3;
+        }
+
+        .head-middle .middle-list li:hover ~ .pop
+        {
+            height: 228px;
+        }
+
+        .head-right
+        {
+            width:296px;
+            height: 50px;
+            margin-top: 25px;
+            float:right;
+        }
+
+        .head-right .search-inp
+        {
+            float: left;
+            height: 48px;
+            width: 243px;
+            padding: 0;
+            border:1px solid rgb(224,224,224);
+            border-right:none;
+        }
+
+        .head-right .search-inp:focus , .head-right .search-inp:focus ~ .search-btn
+        {
+            border-color:  #Ff6700;
+        }
+
+        .head-right .search-btn
+        {
+            float: right;
+            height: 50px;
+            width: 52px;
+            border: none;
+            border:1px solid rgb(224,224,224);
+            padding: 0;
+        }
+
+        .head-right .search-btn i
+        {
+            color:#616161;
+        }
+
+        .head-left .search-btn:hover{
+            background-color: #FF7E00;
+            color: white;
+        }
+
+
+
+        .head .z2
+        {
+            z-index: 2;
+            position: absolute;
+            top:100px;
+            width: 234px;
+            height: 460px;
+            background-color: rgba(0, 0, 0, .6);
+        }
+
+        .head .z2 ul
+        {
+            padding-top:20px;
+            padding-bottom :20px ;
+        }
+
+        .head .z2 li
+        {
+            width: 100%;
+            height: 42px;
+            line-height: 42px;
+
+        }
+ 
+        .head .z2 a
+        {
+            padding-left:30px ;
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .head .z2 li:hover a
+        {
+            background-color: #Ff6700;
+            
+        }
+
+        .head .z2 li i
+        {
+            position: absolute;
+            top:10px;
+            left: 200px;
+            font-size:20px;
+        }
+
+        .middle
+        {
+            width: 1226px;
+            height: 460px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .middle .z1 .list li
+        {
+            position: absolute;
+        }
+        
+        .middle .z1 .list img
+        {
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+
+        .middle .pointer
+        {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+        }
+
+        .middle .pointer a
+        {
+            float: left;
+            margin-left: 6px;
+            background-color: rgba(255,255,255,0.4);
+            width: 6px;
+            height: 6px;
+            border: 3px solid rgba(0, 0, 0, .4);
+            border-radius: 50%;
+        }
+
+        .middle .pointer a:hover,.middle .pointer .active
+        {   
+            border-color: rgba(255,255,255,0.4)  ;
+            background-color:rgba(0, 0, 0, .4)  ;
+        }
+
+        .middle .arrow a
+        {
+            width: 41px;
+            height: 69px;
+
+            background-image: url(./image/icon-slides.png);
+            position: absolute;
+            top:0;
+            bottom: 0;
+            margin: auto 0;
+        }
+
+        .middle .arrow .left
+        {
+            background-position: -84px;
+            left: 234px;
+        }
+
+        .middle .arrow .left:hover
+        {
+            background-position: 0px;
+        }
+
+        .middle .arrow .right
+        {
+            background-position: -125px;
+            right: 0px;
+        }
+
+        .middle .arrow .right:hover
+        {
+            background-position: -42px;
+        }
+
+        .middle .tool-list
+        {
+            position: fixed;
+            width: 26px;
+            height: 206px;
+            background-color: white;
+            bottom:0;
+            right: 119px;
+            border:1px solid rgba(0, 0, 0, .3);
+        }
+
+        .middle .tool-list li
+        {
+          
+            width: 26px;
+            height: 41px;
+            text-align:center;
+            border-bottom: 1px solid rgba(0, 0, 0, .3);
+        }
+
+
+
+        .middle .tool-list i
+        {
+            line-height: 41px;
+            font-size: 18px;
+            color: rgba(0, 0, 0, .4);
+        }
+
+        .last
+        {
+            
+            width: 1226px;
+            height: 460px;
+            margin: 0 auto;
+            margin-top: 14px;
+        }
+
+        .last .last-left 
+        {
+            float: left;
+            width: 234px;
+            height: 170px;
+            background-color: #5f5750;
+        }
+
+        .last .last-left li
+        {
+            width: 76px;
+            height: 84px;
+            float: left;
+        }
+
+        .last .last-left li i
+        {
+            display: block;
+            margin-top: 20px; 
+        }
+
+        .last .last-left a
+        {
+            text-align: center;
+            line-height: 44px;
+            display: block;
+            color: #cfccca;
+            text-decoration: none;
+        }
+
+        .last .ad
+        {
+            float:left;
+            width: 316px;
+            height:170px ;
+            margin-left: 14px;
+        }
+
+        .last .last2
+        {
+            margin-left: 15px;
+        }
+
+        .last .last3
+        {
+            margin-left: 15px;
+        }
+
+        .last a
+        {
+            display: block;
+        }
+
+        .last img
+        {
+            width: 100%;
+            height: 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="top-wrapper">
+        <div class="top-bar">
+        <div class="top-left clearfix">
+            <ul >
+                <li><a href="">小米商城</a></li>
+                <li class="line"></li>
+
+                <li><a href="">MIUI</a></li>
+                <li class="line"></li>
+
+                <li><a href="">loT</a></li>
+                <li class="line"></li>
+
+                <li><a href="">云服務</a></li>
+                <li class="line"></li>
+
+                <li><a href="">天星數科</a></li>
+                <li class="line"></li>
+
+                <li><a href="">有品</a></li>
+                <li class="line"></li>
+
+                <li><a href="">小愛開放平台</a></li>
+                <li class="line"></li>
+
+                <li><a href="">企業团購</a></li>
+                <li class="line"></li>
+
+                <li><a href="">資質證照</a></li>
+                <li class="line"></li>
+
+                <li><a href="">協議規則</a></li>
+                <li class="line"></li>
+
+                <li class="app">
+                    <a href="" class="downapp">下載app</a>
+                    <div class="arrow"></div>
+                    <a href="" class="qr">
+                        <img src="./image/qr.png" />
+                        <span>小米商城APP</span>
+                    </a>
+                </li>
+                <li class="line"></li>
+
+                <li><a href="">智能生活</a></li>
+                <li class="line"></li>
+
+                <li><a href="">Select Location</a></li>
+            </ul>
+        </div>
+
+        <div class="top-right">
+            <ul>
+                <li><a href="">登錄</a></li>
+                <li class="line"></li>
+
+                <li><a href="">注冊</a></li>
+                <li class="line"></li>
+
+                <li><a href="">消息通知</a></li>
+                
+                <li class="buy">
+                    <a href=""  class="buylist">
+                        <span>
+                            <i class="fas fa-cart-arrow-down"></i> 
+                            購物車(0)
+                        </span>
+                    </a>
+                    <div class="buybox">
+                        <span>購物車目前還沒有商品</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+    <div class="head-middle-limit">
+    <div class="head clearfix">
+        <div class="head-left">
+            <a href="" class="logo"></a>
+            <a href="" class="home"></a>
+        </div>  
+        <div class="head-middle">
+            <ul class="middle-list">
+                <li><a href="" class="all">全部商品分類</a></li>
+                <li >
+                    <a href="">小米手機</a>
+                </li>
+                <li><a href="">Redmi紅米</a></li>
+                <li><a href="">電視</a></li>
+                <li><a href="">筆記本</a></li>
+                <li><a href="">家電</a></li>
+                <li><a href="">路由器</a></li>
+                <li><a href="">智能硬件</a></li>
+                <div class="pop"></div>
+
+                <li><a href="">服務</a></li>
+                <li><a href="">社區</a></li>
+            </ul>
+        
+        </div> 
+        <div class="head-right">
+            <input class="search-inp" type="text" >
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="z2">
+            <ul>
+                <li><a href="">手機 電話卡<i class="fas fa-angle-right"></i></a></li>
+                <li><a href="">電視 盒子<i class="fas fa-angle-right"></i></a></li>
+                <li><a href="">筆記本 顯示器<i class="fas fa-angle-right"></i></a></li>
+                <li><a href="">家電 插線版<i class="fas fa-angle-right"></i></a></li>
+                <li><a href="">出行 穿戴<i class="fas fa-angle-right"></i></a></li>
+                <li><a href="">智能 路由器<i class="fas fa-angle-right"></i></a></li>
+                <li><a href="">電源 配件<i class="fas fa-angle-right"></i></a></li>
+                <li><a href="">健康 兒童<i class="fas fa-angle-right"></i></a></li>
+                <li><a href="">耳機 音箱<i class="fas fa-angle-right"></i></a></li>
+                <li><a href="">生活 箱盒<i class="fas fa-angle-right"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="middle">
+        <div class="z1">
+          
+            <ul class="list"> 
+                <li>
+                    <a href="">
+                        <img src="./image/banner1.jpg" >
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./image/banner2.jpg" >
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./image/banner3.jpg" >
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./image/banner4.jpg" >
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./image/banner5.jpg" >
+                    </a>
+                </li>
+            </ul>
+            <div class="pointer">
+                <a href="" class="active"></a>
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+            </div>
+            
+        </div>
+        <div class="arrow">
+            <a href="" class="left"></a>
+            <a href="" class="right"></a>
+        </div>
+
+        <div class="tool-list">
+            
+            <ul>
+                <li><a href=""><i class="fas fa-mobile-alt"></i></a></li>
+                <li><a href=""><i class="fas fa-user"></i></a></li>
+                <li><a href=""><i class="fas fa-wrench"></i></a></li>
+                <li><a href=""><i class="fas fa-headphones-alt"></i></a></li>
+                <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="last">
+        <div class="last-left">
+            <ul>
+                <li><a href=""><i class="fas fa-clock"></i>小米秒殺</a></li>
+                <li><a href=""><i class="fas fa-building"></i>企業团購</a></li>
+                <li><a href=""><i class="fas fa-frog"></i>p碼通道</a></li>
+                <li><a href=""><i class="fas fa-robot"></i>米粉卡</a></li>
+                <li><a href=""><i class="fas fa-keyboard"></i>以舊換新</a></li>
+                <li><a href=""><i class="fas fa-sim-card"></i>話費充值</a></li>
+            </ul>
+        </div>
+
+        <div class="last1 ad">
+            <a href=""><img src="./image/1.jpg"></a>
+        </div>
+
+        <div class="last2 ad">
+            <a href=""><img src="./image/2.jpg"></a>
+        </div>
+        <div class="last3 ad">
+            <a href=""><img src="./image/3.jpg"></a>
+        </div>
+    </div>
+
+
+</body>
+</html>
